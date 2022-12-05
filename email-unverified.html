@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <!-- line-awesome-icon css -->
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- nice select css -->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!-- select2 css -->
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <!-- rte css -->
+    <link rel="stylesheet" href="assets/css/rte_theme_default.css">
+    <!-- filepondPreview css -->
+    <link rel='stylesheet' href='assets/css/filepond-plugin-image-preview.min.css'>
+    <!-- filepond css -->
+    <link rel='stylesheet' href='assets/css/filepond.min.css'>
+    <!-- main style css link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Start Admin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<div class="page-wrapper">
+    <div id="body-overlay" class="body-overlay"></div>
+    <div class="settings-sidebar-area" id="settings-sidebar-area">
+        <div class="settings-sidebar-header">
+            <h5 class="title">Settings</h5>
+        </div>
+        <div class="settings-sidebar-body">
+            <div class="language-area">
+                <h5 class="title">Language</h5>
+                <div class="radio-wrapper">
+                    <div class="radio-item">
+                        <input type="radio" id="test1" name="radio-group">
+                        <label for="test1">English</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="test2" name="radio-group">
+                        <label for="test2">Arabic</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="test3" name="radio-group">
+                        <label for="test3">Spanish</label>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-area">
+                <h5 class="title">Layout Mode</h5>
+                <div class="layout-wrapper">
+                    <div class="layout-content">
+                        <span>Dark Mode</span>
+                    </div>
+                    <div class="layout-tab">
+                        <span class="layout-tab-switcher" id="layout-tab-switcher"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-area topbar-layout-area">
+                <h5 class="title">Topbar Color</h5>
+                <div class="layout-wrapper">
+                    <div class="layout-content">
+                        <span>Light Mode</span>
+                    </div>
+                    <div class="layout-tab">
+                        <span class="layout-tab-switcher" id="topbar-tab-switcher"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-area sidebar-layout-area">
+                <h5 class="title">Sidebar Color</h5>
+                <div class="layout-wrapper">
+                    <div class="layout-content">
+                        <span>Dark Mode</span>
+                    </div>
+                    <div class="layout-tab">
+                        <span class="layout-tab-switcher" id="sidebar-tab-switcher"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-area min-sidebar-layout-area">
+                <h5 class="title">Min Sidebar Color</h5>
+                <div class="layout-wrapper">
+                    <div class="layout-content">
+                        <span>Dark Mode</span>
+                    </div>
+                    <div class="layout-tab">
+                        <span class="layout-tab-switcher" id="min-sidebar-tab-switcher"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-area direction-layout-area">
+                <h5 class="title">Direction</h5>
+                <div class="layout-wrapper">
+                    <div class="layout-content">
+                        <span>RTL Support</span>
+                    </div>
+                    <div class="layout-tab">
+                        <span class="layout-tab-switcher" id="direction-tab-switcher"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-btn">
+                <a href="javascript:void(0)" class="btn--base w-100">Reset To Default</a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-top">
+            <div class="header-version-area header-btn">
+                <button class="header-version-bar" title="Version">
+                    <i class="las la-moon"></i>
+                </button>
+            </div>
+            <div class="header-search-area header-btn">
+                <button class="header-search-bar header-link" title="Search">
+                    <i class="las la-search"></i>
+                </button>
+                <form class="header-search-wrapper">
+                    <div class="position-relative">
+                        <input class="form-control" type="text" placeholder="Search . . . ." aria-label="Search">
+                        <span class="las la-search"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="header-fullscreen-area header-btn">
+                <button class="header-fullscreen-bar header-link" title="Fullscreen">
+                    <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
+                    <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
+                </button>
+            </div>
+            <div class="header-notification-area header-btn">
+                <button class="header-notification-bar header-link" title="Notification">
+                    <i class="las la-bell"></i>
+                    <span class="bling-area">
+                        <span class="bling"></span>
+                    </span>
+                </button>
+                <div class="notification-wrapper">
+                    <div class="notification-header">
+                        <h6 class="title">Notification</h6>
+                        <span class="sub-title"><a href="javascript:void(0)">Clear All</a></span>
+                    </div>
+                    <ul class="notification-list">
+                        <li>
+                            <div class="thumb">
+                                <img src="assets/images/user/user-5.jpg" alt="user">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">Cristina Pride</h6>
+                                <span class="sub-title">Hi, How are you? What about our next meeting</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumb">
+                                <img src="assets/images/user/user-6.jpg" alt="user">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">Add money request from testagent</h6>
+                                <span class="sub-title">6 days ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="notification-footer">
+                        <a href="javascript:void(0)">View All</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-support-area header-btn">
+                <button class="header-support-bar header-link" title="Support">
+                    <i class="las la-headset"></i>
+                    <span class="bling-area">
+                        <span class="bling"></span>
+                    </span>
+                </button>
+                <div class="header-support-wrapper">
+                    <ul class="header-support-list">
+                        <li><a href="pending-ticket.html">Pending Ticket <span class="badge badge--info">3</span></a></li>
+                        <li><a href="active-ticket.html">Active Ticket</a></li>
+                        <li><a href="solved-ticket.html">Solved Ticket</a></li>
+                        <li><a href="all-ticket.html">All Ticket</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="header-settings-area header-btn">
+                <button class="header-settings-bar header-link" title="Settings">
+                    <i class="las la-cog"></i>
+                </button>
+            </div>
+            <div class="header-user-area header-btn">
+                <button class="header-user-bar header-link" title="Profile">
+                    <img src="assets/images/icon/user.png" alt="user">
+                </button>
+                <div class="header-user-wrapper">
+                    <ul class="header-user-list">
+                        <li><a href="admin-profile.html">Admin Profile</a></li>
+                        <li><a href="password-reset.html">Change Password</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-power-area header-btn">
+                <button class="header-power-bar header-link" data-bs-toggle="modal" data-bs-target="#logoutModal" title="Logout">
+                    <i class="las la-power-off"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-logo">
+                <a href="index.html" class="sidebar-main-logo">
+                    <img src="assets/images/logo/logo.png" data-white_img="assets/images/logo/logo.png"
+                    data-dark_img="assets/images/logo/logo-white.png" alt="logo">
+                </a>
+                <button class="sidebar-menu-bar">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+            </div>
+            <div class="sidebar-user-area">
+                <div class="sidebar-user-thumb">
+                    <a href="javascript:void(0)"><img src="assets/images/user/avatar-1.jpg" alt="user"></a>
+                </div>
+                <div class="sidebar-user-content">
+                    <h6 class="title">Nowak Helme</h6>
+                    <span class="sub-title">Super Admin</span>
+                    
+                </div>
+            </div>
+            <div class="sidebar-menu-wrapper">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a href="index.html">
+                            <i class="menu-icon las la-rocket"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Default</li>
+                    <li class="sidebar-menu-item">
+                        <a href="setup-currency.html">
+                            <i class="menu-icon las la-coins"></i>
+                            <span class="menu-title">Setup Currency</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="fees-charges.html">
+                            <i class="menu-icon las la-wallet"></i>
+                            <span class="menu-title">Fees & Charges</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Transactions & Logs</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-calculator"></i>
+                            <span class="menu-title">Add Money Logs</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="add-pending-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Pending Logs</span>
+                                </a>
+                                <a href="add-completed-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Completed Logs</span>
+                                </a>
+                                <a href="add-canceled-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Canceled Logs</span>
+                                </a>
+                                <a href="add-all-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">All Logs</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-sign-out-alt"></i>
+                            <span class="menu-title">Money Out Logs</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="out-pending-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Pending Logs</span>
+                                </a>
+                                <a href="out-completed-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Completed Logs</span>
+                                </a>
+                                <a href="out-canceled-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Canceled Logs</span>
+                                </a>
+                                <a href="out-all-logs.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">All Logs</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-header">Interface Panel</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-user-edit"></i>
+                            <span class="menu-title">User Care</span>
+                            <div class="sidebar-item-badge">
+                                <span class="badge badge--info">3</span>
+                            </div>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="active-users.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Active Users</span>
+                                </a>
+                                <a href="email-unverified.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Email Unverified</span>
+                                    <div class="sidebar-item-badge">
+                                        <span class="badge badge--warning">1</span>
+                                    </div>
+                                </a>
+                                <a href="kyc-unverified.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">KYC Unverified</span>
+                                    <div class="sidebar-item-badge">
+                                        <span class="badge badge--warning">3</span>
+                                    </div>
+                                </a>
+                                <a href="all-users.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">All Users</span>
+                                </a>
+                                <a href="email-to-users.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Email To Users</span>
+                                </a>
+                                <a href="banned-users.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Banned Users</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-user-shield"></i>
+                            <span class="menu-title">Admin Care</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="all-admin.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">All Admin</span>
+                                </a>
+                                <a href="email-to-admin.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Email To Admin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-header">Settings</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon lab la-safari"></i>
+                            <span class="menu-title">Web Settings</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="basic-settings.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Basic Settings</span>
+                                </a>
+                                <a href="image-assets.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Image Assets</span>
+                                </a>
+                                <a href="setup-seo.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Setup SEO</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-mobile"></i>
+                            <span class="menu-title">App Settings</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="splash-screen.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Splash Screen</span>
+                                </a>
+                                <a href="onboard-screen.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Onboard Screen</span>
+                                </a>
+                                <a href="app-urls.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">App URLs</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="language.html">
+                            <i class="menu-icon las la-language"></i>
+                            <span class="menu-title">Languages</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Verification Center</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-envelope-open-text"></i>
+                            <span class="menu-title">Setup Email</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="email-method.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Email Method</span>
+                                </a>
+                                <a href="default-template.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Default Template</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="setup-kyc.html">
+                            <i class="menu-icon las la-clipboard-list"></i>
+                            <span class="menu-title">Setup KYC</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Setup Web Content</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-terminal"></i>
+                            <span class="menu-title">Setup Section</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="banner-section.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Banner Section</span>
+                                </a>
+                                <a href="solutions-section.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Solutions Section</span>
+                                </a>
+                                <a href="monitoring-section.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Monitoring Section</span>
+                                </a>
+                                <a href="best-item.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Best Item</span>
+                                </a>
+                                <a href="latest-item.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Latest Item</span>
+                                </a>
+                                <a href="glance-section.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Glance Section</span>
+                                </a>
+                                <a href="intro-section.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Intro Section</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="setup-pages.html">
+                            <i class="menu-icon las la-file-alt"></i>
+                            <span class="menu-title">Setup Pages</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="extension.html">
+                            <i class="menu-icon las la-puzzle-piece"></i>
+                            <span class="menu-title">Extensions</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Payment Methods</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-funnel-dollar"></i>
+                            <span class="menu-title">Add Money</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="auto-money.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Automatic</span>
+                                </a>
+                                <a href="manual-money.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Manual</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="money-out.html">
+                            <i class="menu-icon las la-print"></i>
+                            <span class="menu-title">Money Out</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-header">Notification</li>
+                    <li class="sidebar-menu-item sidebar-dropdown">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-bell"></i>
+                            <span class="menu-title">Push Notification</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li class="sidebar-menu-item">
+                                <a href="setup-notification.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Setup Notification</span>
+                                </a>
+                                <a href="send-notification.html" class="nav-link">
+                                    <i class="menu-icon las la-ellipsis-h"></i>
+                                    <span class="menu-title">Send Notification</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-menu-header">Bonus</li>
+                    <li class="sidebar-menu-item">
+                        <a href="gdpr-cookie.html">
+                            <i class="menu-icon las la-cookie-bite"></i>
+                            <span class="menu-title">GDPR Cookie</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="server-info.html">
+                            <i class="menu-icon las la-sitemap"></i>
+                            <span class="menu-title">Server Info</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon las la-broom"></i>
+                            <span class="menu-title">Clear Cache</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="main-body-wrapper">
+            <nav class="navbar-wrapper">
+                <div class="dashboard-title-part">
+                    <div class="left">
+                        <div class="icon">
+                            <button class="sidebar-menu-bar">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Email Unverified</h3>
+                            <p>Welcome To AppDevs's Admin Panel</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="dashboard-path">
+                            <span class="main-path"><a href="index.html">Dashboard</a></span>
+                            <i class="las la-angle-right"></i>
+                            <span class="active-path">User Care</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="body-wrapper">
+                <div class="table-area">
+                    <div class="table-wrapper">
+                        <div class="table-header">
+                            <h5 class="title">Email Unverified</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Full Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Country</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul class="user-list">
+                                                <li><img src="assets/images/user/user-1.jpg" alt="user"></li>
+                                            </ul>
+                                        </td>
+                                        <td><span>Sean Black</span></td>
+                                        <td>sean</td>
+                                        <td>sean@gmail.com</td>
+                                        <td>123-456(008)90</td>
+                                        <td>California</td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <div class="switch-toggles two active">
+                                                    <input type="hidden" name="switch">
+                                                    <label class="switch" data-value="verified">Verified</label>
+                                                    <label class="switch" data-value="unverified">Unverified</label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="user-profile.html" class="btn btn--base"><i class="las la-info-circle"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="user-list">
+                                                <li><img src="assets/images/user/user-2.jpg" alt="user"></li>
+                                            </ul>
+                                        </td>
+                                        <td><span>Merri Diamond</span></td>
+                                        <td>black</td>
+                                        <td>merri@gmail.com</td>
+                                        <td>123-456(008)90</td>
+                                        <td>Australia</td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <div class="switch-toggles two active">
+                                                    <input type="hidden" name="switch">
+                                                    <label class="switch" data-value="verified">Verified</label>
+                                                    <label class="switch" data-value="unverified">Unverified</label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="user-profile.html" class="btn btn--base"><i class="las la-info-circle"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class="user-list">
+                                                <li><img src="assets/images/user/user-3.jpg" alt="user"></li>
+                                            </ul>
+                                        </td>
+                                        <td><span>Sean Black</span></td>
+                                        <td>merri</td>
+                                        <td>sean@gmail.com</td>
+                                        <td>123-456(008)90</td>
+                                        <td>India</td>
+                                        <td>
+                                            <div class="toggle-container">
+                                                <div class="switch-toggles two active">
+                                                    <input type="hidden" name="switch">
+                                                    <label class="switch" data-value="verified">Verified</label>
+                                                    <label class="switch" data-value="unverified">Unverified</label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="user-profile.html" class="btn btn--base"><i class="las la-info-circle"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item disabled" aria-disabled="true">
+                                <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                            </li>
+                            <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrapper">
+            <div class="copyright-area">
+                <p>Developed by <a href="https://appdevs.net">Appdevs.</a></p>
+                <p>Xmin <span>V2.0</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" id="logoutModalLabel">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Are You Want To Logout?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn--danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn--base">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    End Admin
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+
+
+<!-- jquery -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<!-- bootstrap js -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<!-- smooth scroll js -->
+<script src="assets/js/smoothscroll.min.js"></script>
+<!-- nice select js -->
+<script src="assets/js/jquery.nice-select.js"></script>
+<!-- select2 js -->
+<script src="assets/js/select2.min.js"></script>
+<!-- rte js -->
+<script src="assets/js/rte.js"></script>
+<!-- rte plugins js -->
+<script src='assets/js/all_plugins.js'></script>
+<!-- filepondPreview js -->
+<script src='assets/js/filepond-plugin-image-preview.min.js'></script>
+<!-- filepond js -->
+<script src='assets/js/filepond.min.js'></script>
+<!-- main -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
